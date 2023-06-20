@@ -1,1 +1,62 @@
-// button.scss
+@use "./../utils" as *;
+
+.button {
+  // 아래 두 줄은 혹시 몰라서 지정해놓은 값
+  border: 0;
+  background: transparent;
+
+  @include paddingX(16px);
+  font-size: rem(14px);
+  border-radius: rem(4px);
+
+  &--fill {
+    background: $brown;
+    color: $white;
+  }
+
+  &--outline {
+    color: $brown;
+    border: 1px solid currentColor; // 요소의 본래 색깔
+  }
+}
+
+// 햄버거 버튼
+.button--burger {
+  @include mobile {
+    width: rem(36px);
+    height: rem(36px);
+    background: skyblue;
+    border: 0;
+    padding: 0;
+    position: relative;
+    @include pos;
+    top: rem(65px);
+    right: rem(20px);
+
+    &BarTop,
+    &BarMiddle,
+    &BarBottom {
+      background: $white;
+      width: 100%;
+      height: 20%;
+      border-radius: rem(10px);
+      left: 0;
+    }
+
+    &BarTop {
+      @include posLeftTop;
+    }
+
+    &BarMiddle {
+      @include posCenterY;
+    }
+
+    &BarBottom {
+      @include posBottomY;
+    }
+  }
+
+  @include desktop {
+    display: none;
+  }
+}

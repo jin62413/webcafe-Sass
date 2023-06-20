@@ -1,1 +1,68 @@
-// header.scss
+@use "./../utils" as *;
+@use "./../components" as *;
+
+.appHeader {
+  background: pink;
+  padding: rem(16px) rem(20px);
+  @include flexbox(column);
+  gap: rem(16px);
+
+  @include mobile {
+    background: $dark-brown;
+    color: $white;
+  }
+
+  @include desktop {
+    position: relative;
+    @include containerMax;
+  }
+}
+
+// 로고
+.logo {
+  width: rem(204px);
+  height: rem(60px);
+
+  &__link {
+    background: url(/assets/images/webcafe-logo.png) no-repeat;
+    height: 100%;
+    display: block;
+  }
+
+  @include desktop {
+    @include posCenterY;
+  }
+}
+
+// 멤버 서비스
+.memberOnly {
+  background: green;
+  @include flexbox($justify: flex-end);
+
+  @include mobile {
+    // 멤버서비스와 로고의 순서를 바꾸기 위해 사용, 그래야 멤버서비스가 위로 올리기
+    // 마크업 순서가 로고, 멤버서비스, 검색폼이다.
+    order: -1;
+  }
+}
+
+// 겁색 폼
+.searchForm {
+  &__group {
+    @include flexbox($justify: flex-end);
+    gap: rem(16px);
+
+    @include mobile {
+      .formInput {
+        // input창의 크기를 뷰포트에 맞게 늘리기 위해 사용
+        flex-grow: 1;
+      }
+    }
+
+    @include desktop {
+      .formInput {
+        width: rem(400px);
+      }
+    }
+  }
+}

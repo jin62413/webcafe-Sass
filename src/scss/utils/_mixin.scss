@@ -1,1 +1,101 @@
-// mixin.scss
+@use "./../utils/unit" as *;
+
+@mixin pos {
+  position: absolute;
+}
+
+// 왼쪽 위
+@mixin posLeftTop($l: 0, $t: 0) {
+  @include pos;
+  left: $l;
+  top: $t;
+}
+
+// 오른쪽 위
+@mixin posRightTop($r: 0, $t: 0) {
+  @include pos;
+  right: $r;
+  top: $t;
+}
+
+// 가로로 중간
+@mixin posCenterX {
+  @include pos;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// 세로로 중간
+@mixin posCenterY {
+  @include pos;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// 가로 세로 중간
+@mixin posCenter {
+  @include pos;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// 세로 맨 아래
+@mixin posBottomY {
+  @include pos;
+  top: 100%;
+  transform: translateY(-100%);
+}
+
+// 왼쪽 오른쪽 패딩
+@mixin paddingX($spacing) {
+  padding-left: rem($spacing);
+  padding-right: rem($spacing);
+}
+
+// 위 아래 패딩
+@mixin paddingY($spacing) {
+  padding-top: rem($spacing);
+  padding-bottom: rem($spacing);
+}
+
+// 위 아래 왼쪽 오른쪽 패딩
+@mixin padding($spacing) {
+  @include paddingX;
+  @include paddingY;
+}
+
+//??????
+// @mixin padding($spacing) {
+//   padding: rem($spacing);
+// }
+
+// 왼쪽 오른쪽 마진
+@mixin marginX($spacing) {
+  margin-left: rem($spacing);
+  margin-right: rem($spacing);
+}
+
+// 위 아래 마진
+@mixin marginY($spacing) {
+  margin-top: rem($spacing);
+  margin-bottom: rem($spacing);
+}
+
+// 위 아래 왼쪽 오른쪽 마진
+@mixin margin($spacing) {
+  @include marginX;
+  @include marginY;
+}
+
+// 콘텐츠가 화면 중간으로 위치하도록
+@mixin containerMax($max-width: 1024px) {
+  // max-width의 기본값을 설정해놔서 값을 따로 주지 않으면 1024px
+  max-width: rem($max-width);
+  @include autoMargin;
+}
+
+@mixin autoMargin {
+  margin-left: auto;
+  margin-right: auto;
+}
