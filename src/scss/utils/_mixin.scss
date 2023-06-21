@@ -130,3 +130,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+// 오브젝트 왜곡 안되게
+@mixin fit($posX: 50%, $posY: 50%, $fit: cover) {
+  object-fit: $fit;
+  object-position: $posX $posY;
+}
