@@ -61,8 +61,8 @@
 
 // 위 아래 왼쪽 오른쪽 패딩
 @mixin padding($spacing) {
-  @include paddingX;
-  @include paddingY;
+  @include paddingX($spacing);
+  @include paddingY($spacing);
 }
 
 //??????
