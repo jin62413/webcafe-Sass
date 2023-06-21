@@ -14,13 +14,16 @@ $breakpoints: (
 }
 
 @mixin respond-from($breakpoint) {
+  // 입력된 변수가 map변수에 있는지 검사한 후 true/false 반환
   @if map.has-key($breakpoints, $breakpoint) {
+    // map변수에서 찾은 key값의 value값을 반환
     $breakpoint-value: map.get($breakpoints, $breakpoint);
 
     @media (min-width: $breakpoint-value) {
       @content;
     }
   } @else {
+    // 오류 났다는 것을 알려주며 컴파일 중지
     @error errorMessage($breakpoint);
   }
 }
