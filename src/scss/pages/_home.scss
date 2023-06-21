@@ -81,6 +81,26 @@
 
 // 게시판
 .board {
+  position: relative;
+
+  &__more {
+    @include posRightTop;
+  }
+
+  &__item {
+    margin: 8px 0;
+    @include flexbox;
+    column-gap: rem(8px);
+  }
+
+  &__link {
+    flex-grow: 1;
+    @include textOver;
+  }
+
+  &__date {
+    white-space: nowrap;
+  }
 }
 
 // 인기 게시판
