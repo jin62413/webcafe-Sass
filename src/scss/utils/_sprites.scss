@@ -11,7 +11,7 @@ $colors: (
 );
 
 @each $section, $color in $colors {
-  .theme#{$section} {
+  .accent#{$section} {
     color: $color;
   }
 }
